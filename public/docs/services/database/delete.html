@@ -220,7 +220,14 @@ $this->db->table('users')->delete()->where('votes', '>', 100)->execute();</code>
     console.log(link);
     
     if (link.length > 0) {
-        link.parent().addClass('active');
+        let closest = link.closest('.docs-nav-sub');
+        console.log(closest);
+        if (closest.length > 0) {
+            console.log(closest.find('> a');
+            closest.find('> a').addClass('active');
+        } else {
+            link.parent().addClass('active');
+        }
     }
 </script>
 	</body>
