@@ -295,9 +295,9 @@ class HelloWorld extends Component {
         let closest = link.closest('.docs-nav-sub');
         if (closest.length > 0) {
             closest.addClass('active');
-        } else {
-            link.parent().addClass('active');
         }
+        
+        link.parent().addClass('active');
     }
 </script>
 	</body>

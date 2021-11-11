@@ -380,9 +380,9 @@ $app->router->map($methods, $uri, $handler);</code></pre>
         let closest = link.closest('.docs-nav-sub');
         if (closest.length > 0) {
             closest.addClass('active');
-        } else {
-            link.parent().addClass('active');
         }
+        
+        link.parent().addClass('active');
     }
 </script>
 	</body>
