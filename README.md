@@ -1,1 +1,3 @@
-# wiggum-docs
+# Wiggum Docs
+
+https://wiggumphp.com/
