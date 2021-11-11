@@ -1,0 +1,20 @@
+{
+  "name": "wiggum-docs",
+  "version": "1.0.0",
+  "description": "Wiggum Docs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp --gulpfile gulpfile.js build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0"
+  },
+  "dependencies": {}
+}

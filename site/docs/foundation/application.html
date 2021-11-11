@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>Application | Wiggum a php framework</title>
+	
+		@@include('../../includes/docHeader.html')
+	</head>
+
+	<body>
+
+		@@include('../../includes/header.html')
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					@@include('../../includes/nav.html')
+
+				</div>
+				<div class="col-md-7">
+				
+					<div class="page-header">
+						<h1>Application</h1>
+					</div>
+					
+					<section>
+						<p>
+							The Application, (or wiggum\foundation\Application) is the heart and soul of your Wiggum application and is used to register your configs, routes, middleware and services
+							The Application object is attached to all your controllers are a property automaticlly. 
+						</p>
+					</section>
+					
+					<section>
+						<h2>Base Path</h2>
+						<p>You have the base path of your applicaiton available to you.  Below examples shows how you would access it in your Controller.</p>
+<pre><code class="language-php">&lt;?php
+	$this-&gt;app-&gt;basePath
+?&gt;</code></pre>
+					</section>
+					
+					<section>
+						<h2>Configs</h2>
+						<p>You have all your config varibles and arrays avalible to you. See <a href="/docs/started/configuration.php">configuration</a> for more detail.</p>
+					</section>
+					
+					<section>
+						<h2>Services</h2>
+						<p>You have all your services avalible to you. See <a href="/docs/foundation/services.php">services</a> for more detail.</p>
+					</section>
+					
+					<section>
+    					<h2>Methods</h2>
+    					<table class="table">
+    						<thead>
+    							<tr>
+    								<th style="width: 30%;">Method</th>
+    								<th>Parameters</th>
+    								<th style="width: 50%;">Description</th>
+    							</tr>
+    						</thead>
+    						<tbody>
+    							<tr>
+    								<td><code>addService</code></td>
+    								<td>
+    									$name<br />
+    									$service<br />
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>addMiddleware</code></td>
+    								<td>
+    									$middleware<br />
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>getContainer</code></td>
+    								<td>
+    									-
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>getMiddleware</code></td>
+    								<td>
+    									-
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>getBasePath</code></td>
+    								<td>
+    									-
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>setBasePath</code></td>
+    								<td>
+    									$basePath<br/>
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>loadConfig</code></td>
+    								<td>
+    									array $config<br />
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>loadBootFiles</code></td>
+    								<td>
+    									-	
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>loadEnvironment</code></td>
+    								<td>
+    									$name
+    								</td>
+    								<td></td>
+    							</tr>
+    							<tr>
+    								<td><code>get</code></td>
+    								<td>
+    									$name<br />
+    								</td>
+    								<td></td>
+    							</tr>
+    						</tbody>
+    					</table>
+					</section>
+					
+				</div>
+			</div>
+		</div>
+		
+		@@include('../../includes/docFooter.html')
+	</body>
+</html>	

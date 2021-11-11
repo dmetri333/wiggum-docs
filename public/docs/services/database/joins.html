@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>Database | Wiggum a php framework</title>
+	
+		<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel='stylesheet' id='prism-css'  href='/static/css/prism.css' media='all' />
+<link rel='stylesheet' id='styles-css'  href='/static/css/style.css' media='all' />
+	</head>
+
+	<body>
+
+		<header class="site-header">
+	<div class="container">
+		<a href="/" class="site-title">Wiggum</a>
+		<div class="lead">a php framework</div>
+	</div>
+</header>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					<div class="docs-nav hidden-sm hidden-xs">
+	<div class="docs-nav-list">
+		<h4 class="title">Get Started</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/">Installation</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/configuration.php">Configuration</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/directory.php">Directory Structure</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Foundation</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/foundation/application.php">Application</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/services.php">Services</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/middleware.php">Middleware</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/routing.php">Routing</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Basics</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/basics/controller.php">Controller</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/request.php">Request</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/response.php">Response</a>
+			</li>
+		</ul>
+	</div>
+			
+	<div class="docs-nav-list">
+		<h4 class="title">Services</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/services/errorhandling/">Error Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/exceptionhandling/">Exception Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/logging/">Logging</a>
+			</li>
+			<li class="docs-nav-sub">
+				<a href="/docs/services/database/">Database</a>
+				<ul>
+					<li>
+						<a href="/docs/services/database/retrievingresults.php">Retrieving Results</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/selects.php">Selects</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/joins.php">Joins</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/unions.php">Unions</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/wheres.php">Where Clauses</a>
+					</li>
+					<!-- 
+					<li>
+						<a href="/docs/services/database/">Ordering, Grouping, Limit, & Offset</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/">Conditional Clauses</a>
+					</li>
+					 -->
+					<li>
+						<a href="/docs/services/database/inserts.php">Inserts</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/updates.php">Updates</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/delete.php">Deletes</a>
+					</li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="/docs/services/flashmessage/">Flash Messages</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/memcache/">Memcache</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/templates/">Templates</a>
+			</li>
+		</ul>
+	</div>
+
+<!-- 
+			<li>
+				<span class="title">Utilities</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/encryption/">Encryption</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/errors-logging/">Errors & Logging</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/file-io/">File I/O</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/hashing/">Hashing</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/templates/">Templates</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/helpers/">Helpers</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/session/">Session</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/flash-message/">Flash Message</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/image-processing/">Image Processing</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="title">Database</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/basic-usage/">Basic Usage</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/query-builder/">Query Builder</a>
+					</li>
+				</ul>
+			</li>
+			 -->
+</div>
+
+				</div>
+				<div class="col-md-7">
+					
+					<section>
+						<div class="page-header">
+							<h1>Database: Joins</h1>
+						</div>
+					</section>
+					
+					<section>
+						<div class="sub-section">
+						<h4>Inner Join Clause</h4>
+						<p>
+    						The query builder may also be used to write join statements. To perform a basic "inner join", you may use the 
+    						<code>join</code> method on a query builder instance. The first argument passed to the <code>join</code> method 
+    						is the name of the table you need to join to, while the remaining arguments specify the column constraints for 
+    						the join. Of course, as you can see, you can join to multiple tables in a single query:
+						</p>
+					
+					<pre class=" language-php"><code class=" language-php">$users = $this->db->table('users')
+    ->join('contacts', 'users.id', '=', 'contacts.user_id')
+    ->join('orders', 'users.id', '=', 'orders.user_id')
+    ->select('users.*', 'contacts.phone', 'orders.price')
+    ->fetchRow();</code></pre>
+            			</div>
+            			
+            			<div class="sub-section">
+						<h4>Left Join Clause</h4>
+						<p>
+							If you would like to perform a "left join" or "right join" instead of an "inner join", use the  <code>leftJoin</code> 
+							or <code>rightJoin</code> methods. These methods have the same signature as the <code>join</code> method:
+						</p>
+            
+           <pre class=" language-php"><code class=" language-php">$users = $this->db->table('users')
+    ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+    ->fetchRow();
+
+$users = $this->db->table('users')
+    ->rightJoin('posts', 'users.id', '=', 'posts.user_id')
+    ->fetchRow();</code></pre>
+            			</div>
+            			
+            			<div class="sub-section">
+						<h4>Advanced Join Clauses</h4>
+						<p>
+							You may also specify more advanced join clauses. To get started, pass a Closure as the second argument into the join method.
+							The <code>Closure</code> will receive a JoinClause object which allows you to specify constraints on the join clause:
+						</p>
+             
+            <pre class=" language-php"><code class=" language-php">$this->db->table('users')
+	->join('contacts', function ($join) {
+		$join->on('users.id', '=', 'contacts.user_id')
+			 ->orOn('users.id', '=', 'orders.user_id');
+	})
+	->fetchRow();</code></pre>
+        
+             			<p>If you would like to use a "where" style clause on your joins, you may use the where and orWhere methods on a join. Instead of comparing two columns, these methods will compare the column against a value:</p>
+					
+					<pre class=" language-php"><code class=" language-php">$this->db->table('users')
+	->join('contacts', function ($join) {
+		$join->on('users.id', '=', 'contacts.user_id')
+			 ->where('contacts.user_id', '>', 5);
+	})
+	->fetchRow();</code></pre>
+					</div>
+					</section>
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js?ver=1.10.1'></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/static/js/prism.js"></script>
+	</body>
+</html>	

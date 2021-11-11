@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>Database | Wiggum a php framework</title>
+	
+		@@include('../../../includes/docHeader.html')
+	</head>
+
+	<body>
+
+		@@include('../../../includes/header.html')
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					@@include('../../../includes/nav.html')
+
+				</div>
+				<div class="col-md-7">
+					
+					<section>
+						<div class="page-header">
+							<h1>Database: Retrieving Results</h1>
+						</div>
+					</section>
+					
+					<section>	
+						<h4>Fetching results</h4>
+						<p>
+							You may use the <code>table</code> method on the DB service to begin a query. The <code>table</code> method returns a query builder instance for the given table, allowing you to chain more constraints onto the query and then finally get the results using any of the below methods:
+						</p>
+						
+						<div class="sub-section">
+							<h5>Retrieving A Single Row</h5>
+							
+							<p>
+                        		Use the <code>fetchRow</code> method to get a single row. By default the row is a php standard object, pass true as the first parameter
+                        		for the row to be associate array.
+                        	</p>
+                    		
+                    		<pre class=" language-php"><code class="language-php">$users = $this->db->table('users')->where('id', '=', 5)->fetchRow();
+
+$users = $this->db->table('users')->where('id', '=', 5)->fetchRow(true);</code></pre>
+                       		
+                    		<p>
+                        		Use the <code>fetchObject</code> method to get a single row. Row is a php object of the type you pass it.
+                        	</p>
+                    		
+                    		<pre class=" language-php"><code class="language-php">$users = $this->db->table('users')->where('id', '=', 5)->fetchObject(new User());</code></pre>
+                       
+                        </div>
+                        
+						<div class="sub-section">
+                    		<h5>Retrieving All Rows From a Table</h5>
+							
+                        	<p>
+                        		Use the <code>fetchRows</code> method to get an array of all rows. By default the rows are returned as php objects, pass true as the first parameter
+                        		for the rows to be associate array.
+                        	</p>
+                        	
+                        	<pre class=" language-php"><code class="language-php">$users = $this->db->table('users')->fetchRows();
+
+$users = $this->db->table('users')->fetchRows(true);</code></pre>
+
+                        	<p>
+                        		Use the <code>fetchObjects</code> method to get an array of all rows. Each row is a php object of the type you pass it.
+                        	</p>
+                        	
+                        	<pre class=" language-php"><code class="language-php">$users = $this->db->table('users')->fetchObjects(new User());</code></pre>
+                       
+                       		<p>
+                       			You can also retrieve the resulting array as an associtive array with a column as the key.
+                       		</p>	
+                       		
+                       		<pre class=" language-php"><code class="language-php">$users = $this->db->table('users')->select(['id', 'email', 'name'])->fetchRowsWithColumnKey('id');</code></pre>
+                       
+                        </div>
+                        
+						<div class="sub-section">	
+                        	<h5>Retrieve all items of a column</h5>
+                        	
+                        	<p>
+                        		If you would like to retrieve a Collection containing the values of a single column, you may use the <code>fetchAllColumn</code> method. In this example, we'll retrieve a Collection of titles:
+                        	</p>
+                        
+                        	<pre class=" language-php"><code class="language-php">$titles = $this->db->table('users')->select('title')->fetchAllColumn();</code></pre>
+                       
+                        </div>
+                        
+                    	<div class="sub-section">	
+                        	<h5>Retrieving a Column From a Table</h5>
+                        	
+                        	<p>If you don't need an entire row, you may extract a single value from a record using the <code>fetchValue</code> method. This method will return the value of the column directly:</p>
+                        	
+                        	<pre class="language-php"><code class="language-php">$email = $this->db->table('users')->select('email')->fetchValue();</code></pre>
+                       
+                        </div>
+                        
+                    	<div class="sub-section">
+                    		<h5>Retrieve a list as a key value pair</h5>
+                    		
+                    		<p>You may retrieve a list as a key value pair using the <code>fetchKeyValuePair</code> method.</p>
+                        	
+                        	<pre class="language-php"><code class="language-php">$options = $this->db->table('options')->fetchKeyValuePair('name', 'value');</code></pre>
+                       
+                        </div>
+                        
+                    </section>	
+                    	
+                    <section>
+                    	<h4>Aggregates</h4>
+                    	
+                    	<p>
+							The query builder also provides a variety of aggregate methods such as <code>count</code>, <code>max</code>, <code>min</code>, 
+							<code>avg</code>, and <code>sum</code>. You may call any of these methods after constructing your query:
+						</p>
+						
+                        <pre class=" language-php"><code class="language-php">$users = $this->db->table('users')->count();</code></pre>
+                        
+                        <pre class=" language-php"><code class="language-php">$price = $this->db->table('orders')->max('price');</code></pre>
+
+						<p>You may combine these methods with other clauses:</p>
+
+						<pre class=" language-php"><code class="language-php">$price = $this->db->table('orders')
+    ->where('finalized', 1)
+    ->avg('price');</code></pre>
+						
+						
+					</section>
+					
+				</div>
+			</div>
+		</div>
+		
+		@@include('../../../includes/docFooter.html')
+	</body>
+</html>	

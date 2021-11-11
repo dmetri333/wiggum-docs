@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>HTTP Routing | Wiggum a php framework</title>
+	
+		@@include('../../includes/docHeader.html')
+	</head>
+
+	<body>
+
+		@@include('../../includes/header.html')
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					@@include('../../includes/nav.html')
+
+				</div>
+				<div class="col-md-9">
+				
+					<section>
+						<div class="page-header">
+							<h1>HTTP Routing</h1>
+						</div>
+
+						<div class="docs-callout docs-callout-info">
+							<h4>Route Engine</h4>
+							<p>The Wiggum Framework's router is built on top of the <a target="_blank" href="https://github.com/nikic/FastRoute">nikic/fastroute</a> component.</p>
+						</div>
+					</section>
+					
+					<section>
+						<section class="sub-section">
+						<h2>Basic Routing</h2>
+						<p>
+							Routing rules are defined in your <code>app/boot/routes.php</code> file. The most basic Wiigum routes simply accept a URI and a handler action, in the format ClassPath@method
+						</p>
+							<pre><code class="language-php">// example.com/journals invokes the doDefault method in the controller class Blog 
+$app->router->get('/journals', '\app\controllers\blog\Blog');
+
+// example.com/docs invokes the allDocuments method in the controller class Documents 
+$app->router->get('/docs', '\app\controllers\documents\Documents@allDocuments');
+</code></pre>
+						</section>
+						<section class="sub-section">
+							<h5>Available Router Methods</h5>
+							<p>The router allows you to register routes that respond to any HTTP verb:</p>
+
+						<pre><code class="language-php">$app->router->get($uri, $callback);
+$app->router->post($uri, $handler);
+$app->router->put($uri, $handler);
+$app->router->patch($uri, $handler);
+$app->router->delete($uri, $handler);
+$app->router->options($uri, $handler);
+$app->router->any($uri, $handler);
+$app->router->map($methods, $uri, $handler);</code></pre>
+						</section>
+					</section>
+						
+
+
+					<section>
+						<section class="sub-section">
+							<h2>Route Parameters</h2>
+							
+							<p>Sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a user's ID from the URL. You may do so by defining route parameters:</p>
+							<pre><code class="language-php">$this->router->get('user/{id}', '/app/controllers/users/UserController@showProfile');</code></pre>
+							
+							<p>The id is stored in the <code>Request</code> object as a parameter and can be retreived in your contorller method like this:</p>
+							<pre><code class="language-php">$id = $request->getParameter('id');</code></pre>
+							
+							Another example with multiple parameters:
+							
+							<pre><code class="language-php">$this->router->get('posts/{postId}/comments/{commentId}', '/app/controllers/posts/CommentController@showComment');</code></pre>
+						</section>
+						
+						<section class="sub-section">
+							<h5>Optional Parameters</h5>
+							<p>You may define optional route parameters by enclosing part of the route URI definition in [...]. So, for example, /foo[bar] will match both /foo and /foobar:</p>
+							<pre><code class="language-php">$this->router->get('user[/{name}]', '/app/controllers/users/UserController@showProfile');</code></pre>
+						</section>
+						
+						<section class="sub-section">
+							<h5>Regular Expression Constraints</h5>
+							<p>You may constrain the format of your route parameters by defining a regular expression in your route definition:</p>
+							<pre><code class="language-php">$this->router->get('user/{name:[A-Za-z]+}', '/app/controllers/users/UserController@showProfile');</code></pre>
+						</section>
+					</section>
+					
+					<section>
+						<section class="sub-section">
+							<h2>Route Closure</h2>
+							
+							<p>You can use a Closure as your handler, your Closure must return a <code>array</code> with the route actions.</p>
+							<p>The route actions that are available to you are:</p>
+							<table class="table">
+								<tr>
+									<td>classPath (required)</td>
+									<td>
+									The string is divided into the class path to your controller and a method to invoke in your controller 
+									seperated by a @ sign. If no method is provided <code>doDefault</code> is used as a default method. eg. 
+									<code>\app\controllers\documents\Documents@allDocuments</code>.
+									</td>
+								</tr>
+								<tr>
+									<td>parameters (optional)</td>
+									<td>Any paramaters you would like to attach to your <code>Request</code> object.</td>
+								</tr>
+								<tr>
+									<td>properties (optional)</td>
+									<td>Any properties you would like to attach to your controller.</td>
+								</tr>
+							</table>
+							
+							<pre><code class="language-php">$app->addRoute('/docs', function($parameters) {
+	$properties = ['accountId' => 123];
+						
+	return ['classPath' => '\app\controllers\documents\Documents@allDocuments', 'parameters' => $parameters, 'properties' => $properties];
+});
+</code></pre>	
+							
+						</section>
+					</section>
+					
+					<section>
+						<section class="sub-section">
+							<h2>Route Groups</h2>
+							<p>Route groups allow you to share route attributes, such as prefix, middleware or filters, across a large number of routes without needing to define those attributes on each individual route. Shared attributes are specified in an array format as the first parameter to the $router->group method.</p>
+						</section>
+						
+						<section class="sub-section">
+							<h5>Route Prefix</h5>
+							<p>The prefix group attribute may be used to prefix each route in the group with a given URI. For example, you may want to prefix all route URIs within the group with admin:</p>
+						
+							<pre><code class="language-php">$app->router->group(['prefix' => '/admin'], function () use ($app) {
+    $app->router->get('/users', function() {
+        // Matches The "/admin/users" URL
+    });
+});
+</code></pre>
+						</section>	
+						
+						
+						<section class="sub-section">
+							<h5>Middleware</h5>
+							<p>To assign middleware to all routes within a group, you may use the middleware key in the group attribute array.</p>
+							<p>First register your middleware with the router:</p>
+							
+							<pre><code class="language-php">$app->router->registerMiddleware('auth', function($request, $response, $next) {
+    echo 'BEFORE';
+	$response = $next($request, $response);
+	echo 'AFTER';
+
+	return $response;
+});
+</code></pre>	
+							<p>Using the name you gave your middleware above, define your route group:</p>
+							<pre><code class="language-php">$app->router->group(['middleware' => 'auth'], function () use ($app) {
+    // Both the below routes uses auth Middleware registered above
+    
+    $app->router->get('/', '/app/controllers/dashboard/DashController');
+
+    $app->router->get('user/profile', '/app/controllers/users/UserController@showProfile');
+});
+</code></pre>	
+						<div class="docs-callout docs-callout-info">
+							<h4>Middleware Order</h4>
+							<p>Route middlewares gets added after system middlewares and will be executed in the order you define them.</p>
+						</div>
+						
+						
+						</section>
+						
+						<section class="sub-section">
+							<h5>Filters</h5>
+							<p>Filters allow you to munipulate a routes actions before being processed. For example you can chnage the controller classpath, or modify parameters or add properties.</p>
+							<p>To assign a filter to all routes within a group, you may use the filters key in the group attribute array.</p>
+							<p>First register your filter with the router:</p>
+							
+							<pre><code class="language-php">$app->router->registerFilter('attachUserId', function($actions) {
+    $actions['properties']['userId'] = $actions['paramters']['userId']; // attach userId to your controller as a property
+
+	return $actions;
+});
+</code></pre>	
+							<p>Using the name you gave your filter above, define your route group:</p>
+							<pre><code class="language-php">$app->router->group(['filters' => 'attachUserId'], function () use ($app) {
+    // Both the below routes uses attachUserId Filter registered above
+    
+    $app->router->get('/', '/app/controllers/dashboard/DashController');
+
+    $app->router->get('user/profile', '/app/controllers/users/UserController@showProfile');
+});
+</code></pre>
+							
+						</section>
+					</section>
+
+				</div>
+			</div>
+		</div>
+		
+		@@include('../../includes/docFooter.html')
+	</body>
+</html>	

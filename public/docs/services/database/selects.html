@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>Database | Wiggum a php framework</title>
+	
+		<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel='stylesheet' id='prism-css'  href='/static/css/prism.css' media='all' />
+<link rel='stylesheet' id='styles-css'  href='/static/css/style.css' media='all' />
+	</head>
+
+	<body>
+
+		<header class="site-header">
+	<div class="container">
+		<a href="/" class="site-title">Wiggum</a>
+		<div class="lead">a php framework</div>
+	</div>
+</header>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					<div class="docs-nav hidden-sm hidden-xs">
+	<div class="docs-nav-list">
+		<h4 class="title">Get Started</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/">Installation</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/configuration.php">Configuration</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/directory.php">Directory Structure</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Foundation</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/foundation/application.php">Application</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/services.php">Services</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/middleware.php">Middleware</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/routing.php">Routing</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Basics</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/basics/controller.php">Controller</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/request.php">Request</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/response.php">Response</a>
+			</li>
+		</ul>
+	</div>
+			
+	<div class="docs-nav-list">
+		<h4 class="title">Services</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/services/errorhandling/">Error Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/exceptionhandling/">Exception Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/logging/">Logging</a>
+			</li>
+			<li class="docs-nav-sub">
+				<a href="/docs/services/database/">Database</a>
+				<ul>
+					<li>
+						<a href="/docs/services/database/retrievingresults.php">Retrieving Results</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/selects.php">Selects</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/joins.php">Joins</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/unions.php">Unions</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/wheres.php">Where Clauses</a>
+					</li>
+					<!-- 
+					<li>
+						<a href="/docs/services/database/">Ordering, Grouping, Limit, & Offset</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/">Conditional Clauses</a>
+					</li>
+					 -->
+					<li>
+						<a href="/docs/services/database/inserts.php">Inserts</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/updates.php">Updates</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/delete.php">Deletes</a>
+					</li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="/docs/services/flashmessage/">Flash Messages</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/memcache/">Memcache</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/templates/">Templates</a>
+			</li>
+		</ul>
+	</div>
+
+<!-- 
+			<li>
+				<span class="title">Utilities</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/encryption/">Encryption</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/errors-logging/">Errors & Logging</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/file-io/">File I/O</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/hashing/">Hashing</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/templates/">Templates</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/helpers/">Helpers</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/session/">Session</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/flash-message/">Flash Message</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/image-processing/">Image Processing</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="title">Database</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/basic-usage/">Basic Usage</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/query-builder/">Query Builder</a>
+					</li>
+				</ul>
+			</li>
+			 -->
+</div>
+
+				</div>
+				<div class="col-md-7">
+					
+					<section>
+						<div class="page-header">
+							<h1>Database: Selects</h1>
+						</div>
+					</section>
+					
+					<section>
+						<h4>Basic Selects</h4>
+						<div class="sub-section">
+							<pre class="language-php"><code class="language-php">$users = $this->db->table('users')->select('*')->fetchRows();</code></pre>
+				        	<em class="muted">select `foo`, `bar`, `baz`, `boom` from `users`</em>
+						</div>
+						
+						<div class="sub-section">
+						<pre class=" language-php"><code class=" language-php">$users = $this->db->table('users')->distinct()->fetchRows();</code></pre>
+						<p><em class="muted">select distinct `foo`, `bar` from `users</em></p>
+						</div>
+						
+						<div class="sub-section">
+							<pre class="language-php"><code class=" language-php">$this->db->table('users')->select('foo')->addSelect('bar')->addSelect(['baz', 'boom'])->fetchRows();</code></pre>
+							<p><em class="muted">select `foo`, `bar`, `baz`, `boom` from `users`</em></p>
+						</div>
+					</section>
+					<section>
+						<h4>Ordering, Grouping, Limit, &amp; Offset</h4>
+						<div class="sub-section">
+    						<h5>orderBy</h5>
+    						<p>
+    							The orderBy method allows you to sort the result of the query by a given column. The first argument to the orderBy method should 
+    							be the column you wish to sort by, while the second argument controls the direction of the sort and may be either asc or desc:
+    						</p>
+							<pre class="language-php"><code class="language-php">$users = $this->db->table('users')
+    ->orderBy('name', 'desc')
+    ->fetchRows();</code></pre>
+				
+						</div>
+						
+						<div class="sub-section">
+    						<h5>groupBy</h5>
+    						<p>
+    							The groupBy and having methods may be used to group the query results. The having method's signature is similar to that of the where method:
+    						</p>
+							<pre class="language-php"><code class="language-php">$users = $this->db->table('users')
+    ->groupBy('account_id')
+    ->fetchRows();</code></pre>
+    
+    						<p>
+    							You may pass multiple arguments to the groupBy method to group by multiple columns:
+    						</p>
+							<pre class="language-php"><code class="language-php">$users = $this->db->table('users')
+    ->groupBy('first_name', 'status')
+    ->fetchRows();</code></pre>
+						</div>
+						
+						<div class="sub-section">
+    						<h5>Limit / Offset</h5>
+    						<p>
+    							Return a limited set by using the <code>limit</code> method. It also has a optional parameter to pass a offset.
+    						</p>
+    						<pre class="language-php"><code class="language-php">$users = $this->db->table('users')
+    ->limit(10)
+    ->fetchRows();
+    
+$users = $this->db->table('users')
+    ->limit(10, 20)
+    ->fetchRows();</code></pre>
+    						<p>
+    							Set a offset using the <code>offset</code> method.
+    						</p>
+    						<pre class="language-php"><code class="language-php">$users = $this->db->table('users')
+    ->offset(20)
+    ->fetchRows();</code></pre>
+						</div>
+						
+						<div class="sub-section">
+    						<h5>latest / oldest</h5>
+    						<p>
+    							Coming Soon
+    						</p>
+						</div>
+						
+						
+					</section>
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js?ver=1.10.1'></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/static/js/prism.js"></script>
+	</body>
+</html>	

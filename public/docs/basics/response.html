@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>HTTP Response | Wiggum a php framework</title>
+	
+		<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel='stylesheet' id='prism-css'  href='/static/css/prism.css' media='all' />
+<link rel='stylesheet' id='styles-css'  href='/static/css/style.css' media='all' />
+	</head>
+
+	<body>
+
+		<header class="site-header">
+	<div class="container">
+		<a href="/" class="site-title">Wiggum</a>
+		<div class="lead">a php framework</div>
+	</div>
+</header>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					<div class="docs-nav hidden-sm hidden-xs">
+	<div class="docs-nav-list">
+		<h4 class="title">Get Started</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/">Installation</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/configuration.php">Configuration</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/directory.php">Directory Structure</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Foundation</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/foundation/application.php">Application</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/services.php">Services</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/middleware.php">Middleware</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/routing.php">Routing</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Basics</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/basics/controller.php">Controller</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/request.php">Request</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/response.php">Response</a>
+			</li>
+		</ul>
+	</div>
+			
+	<div class="docs-nav-list">
+		<h4 class="title">Services</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/services/errorhandling/">Error Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/exceptionhandling/">Exception Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/logging/">Logging</a>
+			</li>
+			<li class="docs-nav-sub">
+				<a href="/docs/services/database/">Database</a>
+				<ul>
+					<li>
+						<a href="/docs/services/database/retrievingresults.php">Retrieving Results</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/selects.php">Selects</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/joins.php">Joins</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/unions.php">Unions</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/wheres.php">Where Clauses</a>
+					</li>
+					<!-- 
+					<li>
+						<a href="/docs/services/database/">Ordering, Grouping, Limit, & Offset</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/">Conditional Clauses</a>
+					</li>
+					 -->
+					<li>
+						<a href="/docs/services/database/inserts.php">Inserts</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/updates.php">Updates</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/delete.php">Deletes</a>
+					</li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="/docs/services/flashmessage/">Flash Messages</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/memcache/">Memcache</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/templates/">Templates</a>
+			</li>
+		</ul>
+	</div>
+
+<!-- 
+			<li>
+				<span class="title">Utilities</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/encryption/">Encryption</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/errors-logging/">Errors & Logging</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/file-io/">File I/O</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/hashing/">Hashing</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/templates/">Templates</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/helpers/">Helpers</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/session/">Session</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/flash-message/">Flash Message</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/image-processing/">Image Processing</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="title">Database</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/basic-usage/">Basic Usage</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/query-builder/">Query Builder</a>
+					</li>
+				</ul>
+			</li>
+			 -->
+</div>
+
+				</div>
+				<div class="col-md-9">
+				
+					<div class="page-header">
+						<h1>HTTP Response</h1>
+					</div>
+						
+					<h2>Basics Output</h2>
+					<p>Of course, all routes and controllers should return some kind of response to be sent back to the user's browser.</p>
+					
+					<p>A instance of the current HTTP reponse as a <code>\wiggum\http\Reponse</code> object is always passed into your <code>Controller</code>. This allows you to receive the response object that has already been passed through any middlewares you have setup.</p>
+					
+					
+					<pre><code class="language-php">&lt;?php
+namespace app\components\helloWorld;
+
+use \wiggum\model\Component;
+use \wiggum\model\Request;
+use \wiggum\model\Response;
+
+class HelloWorld extends Controller 
+{
+	// ...
+	
+	/**
+     *
+     * @param  Request  $request
+     * @param  Response  $response
+     * @return Response
+     */
+	public function doDefault(Request $request, Response $response) 
+	{
+		$response->setOutput('Hello World!');
+		
+		return $response;
+	}
+	
+	// ...
+}
+					
+					</code></pre>
+					
+					<p>The given string will automatically be converted into an HTTP response by the framework.</p>
+					
+					
+					<p>Every <code>Controller</code> method must return the response object.</p>
+					
+					<h5>Other Response Types</h5>
+					<p>Below is an example of setting the content type to <code>application/json</code> and passing a json object as the output.</p>
+					
+					<pre><code class="language-php">$response->setContentType('application/json');
+$response->setOutput(json_encode($output, JSON_NUMERIC_CHECK));</code></pre>
+					
+					<h2>Attaching Headers</h2>
+					<p>You may use the addHeader method to add a series of headers to the response before sending it back to the user:</p>
+					
+					<pre><code class="language-php">$response->addHeader('Content-Type', $type);
+$response->addHeader('X-Header-One', 'Header Value');
+$response->addHeader('X-Header-Two', 'Header Value');</code></pre>
+					
+					<p>Or, you may use the <code>setHeaders</code> method to specify an array of headers to be added to the response:</p>
+					
+					<pre><code class="language-php">$response->setHeaders([
+	'Content-Type' => $type,
+	'X-Header-One' => 'Header Value',
+	'X-Header-Two' => 'Header Value',
+]);</code></pre>
+					
+					<h2>Redirects</h2>
+					<p>Defining a redirect will set all the proper headers needed to redirect the user to another URL.</p>
+					
+					<pre><code class="language-php">$response->setRedirect('/home/');</code></pre>
+					
+	
+					<h2>Methods</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th style="width: 30%;">Method</th>
+								<th>Parameters</th>
+								<th style="width: 50%;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>getContentType</code></td>
+								<td>-</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><code>setContentType</code></td>
+								<td>
+									$contentType
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>setHeaders</code></td>
+								<td>
+									$headers
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>getHeaders</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>addHeader</code></td>
+								<td>
+									$name<br />
+									$value
+								</td>
+								<td></td>
+							</tr>
+							
+						
+							<tr>
+								<td><code>getHeader</code></td>
+								<td>
+									$name
+								</td>
+								<td></td>
+							</tr>
+		
+							<tr>
+								<td><code>setOutput</code></td>
+								<td>
+									$output
+								</td>
+								<td></td>
+							</tr>
+							
+							
+							<tr>
+								<td><code>appendOutput</code></td>
+								<td>
+									$output
+								</td>
+								<td></td>
+							</tr>
+					
+							<tr>
+								<td><code>getOutput</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+					
+	
+							<tr>
+								<td><code>setRedirect</code></td>
+								<td>
+									$redirect
+								</td>
+								<td></td>
+							</tr>
+					
+	
+							<tr>
+								<td><code>getRedirect</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+					
+							<tr>
+								<td><code>withStatus</code></td>
+								<td>
+									$code<br />
+									$reasonPhrase
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>getReasonPhrase</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+					
+							<tr>
+								<td><code>getStatusCode</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+	
+						</tbody>
+					</table>
+	
+				</div>
+			</div>
+		</div>
+		
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js?ver=1.10.1'></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/static/js/prism.js"></script>
+	</body>
+</html>	

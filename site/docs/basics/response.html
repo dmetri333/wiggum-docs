@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>HTTP Response | Wiggum a php framework</title>
+	
+		@@include('../../includes/docHeader.html')
+	</head>
+
+	<body>
+
+		@@include('../../includes/header.html')
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					@@include('../../includes/nav.html')
+
+				</div>
+				<div class="col-md-9">
+				
+					<div class="page-header">
+						<h1>HTTP Response</h1>
+					</div>
+						
+					<h2>Basics Output</h2>
+					<p>Of course, all routes and controllers should return some kind of response to be sent back to the user's browser.</p>
+					
+					<p>A instance of the current HTTP reponse as a <code>\wiggum\http\Reponse</code> object is always passed into your <code>Controller</code>. This allows you to receive the response object that has already been passed through any middlewares you have setup.</p>
+					
+					
+					<pre><code class="language-php">&lt;?php
+namespace app\components\helloWorld;
+
+use \wiggum\model\Component;
+use \wiggum\model\Request;
+use \wiggum\model\Response;
+
+class HelloWorld extends Controller 
+{
+	// ...
+	
+	/**
+     *
+     * @param  Request  $request
+     * @param  Response  $response
+     * @return Response
+     */
+	public function doDefault(Request $request, Response $response) 
+	{
+		$response->setOutput('Hello World!');
+		
+		return $response;
+	}
+	
+	// ...
+}
+					
+					</code></pre>
+					
+					<p>The given string will automatically be converted into an HTTP response by the framework.</p>
+					
+					
+					<p>Every <code>Controller</code> method must return the response object.</p>
+					
+					<h5>Other Response Types</h5>
+					<p>Below is an example of setting the content type to <code>application/json</code> and passing a json object as the output.</p>
+					
+					<pre><code class="language-php">$response->setContentType('application/json');
+$response->setOutput(json_encode($output, JSON_NUMERIC_CHECK));</code></pre>
+					
+					<h2>Attaching Headers</h2>
+					<p>You may use the addHeader method to add a series of headers to the response before sending it back to the user:</p>
+					
+					<pre><code class="language-php">$response->addHeader('Content-Type', $type);
+$response->addHeader('X-Header-One', 'Header Value');
+$response->addHeader('X-Header-Two', 'Header Value');</code></pre>
+					
+					<p>Or, you may use the <code>setHeaders</code> method to specify an array of headers to be added to the response:</p>
+					
+					<pre><code class="language-php">$response->setHeaders([
+	'Content-Type' => $type,
+	'X-Header-One' => 'Header Value',
+	'X-Header-Two' => 'Header Value',
+]);</code></pre>
+					
+					<h2>Redirects</h2>
+					<p>Defining a redirect will set all the proper headers needed to redirect the user to another URL.</p>
+					
+					<pre><code class="language-php">$response->setRedirect('/home/');</code></pre>
+					
+	
+					<h2>Methods</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th style="width: 30%;">Method</th>
+								<th>Parameters</th>
+								<th style="width: 50%;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>getContentType</code></td>
+								<td>-</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><code>setContentType</code></td>
+								<td>
+									$contentType
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>setHeaders</code></td>
+								<td>
+									$headers
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>getHeaders</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>addHeader</code></td>
+								<td>
+									$name<br />
+									$value
+								</td>
+								<td></td>
+							</tr>
+							
+						
+							<tr>
+								<td><code>getHeader</code></td>
+								<td>
+									$name
+								</td>
+								<td></td>
+							</tr>
+		
+							<tr>
+								<td><code>setOutput</code></td>
+								<td>
+									$output
+								</td>
+								<td></td>
+							</tr>
+							
+							
+							<tr>
+								<td><code>appendOutput</code></td>
+								<td>
+									$output
+								</td>
+								<td></td>
+							</tr>
+					
+							<tr>
+								<td><code>getOutput</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+					
+	
+							<tr>
+								<td><code>setRedirect</code></td>
+								<td>
+									$redirect
+								</td>
+								<td></td>
+							</tr>
+					
+	
+							<tr>
+								<td><code>getRedirect</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+					
+							<tr>
+								<td><code>withStatus</code></td>
+								<td>
+									$code<br />
+									$reasonPhrase
+								</td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td><code>getReasonPhrase</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+					
+							<tr>
+								<td><code>getStatusCode</code></td>
+								<td>
+									-
+								</td>
+								<td></td>
+							</tr>
+	
+						</tbody>
+					</table>
+	
+				</div>
+			</div>
+		</div>
+		
+		@@include('../../includes/docFooter.html')
+	</body>
+</html>	

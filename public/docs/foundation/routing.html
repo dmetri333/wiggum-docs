@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>HTTP Routing | Wiggum a php framework</title>
+	
+		<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel='stylesheet' id='prism-css'  href='/static/css/prism.css' media='all' />
+<link rel='stylesheet' id='styles-css'  href='/static/css/style.css' media='all' />
+	</head>
+
+	<body>
+
+		<header class="site-header">
+	<div class="container">
+		<a href="/" class="site-title">Wiggum</a>
+		<div class="lead">a php framework</div>
+	</div>
+</header>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					<div class="docs-nav hidden-sm hidden-xs">
+	<div class="docs-nav-list">
+		<h4 class="title">Get Started</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/">Installation</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/configuration.php">Configuration</a>
+			</li>
+			<li class="">
+				<a href="/docs/started/directory.php">Directory Structure</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Foundation</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/foundation/application.php">Application</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/services.php">Services</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/middleware.php">Middleware</a>
+			</li>
+			<li class="">
+				<a href="/docs/foundation/routing.php">Routing</a>
+			</li>
+		</ul>
+	</div>
+	<div class="docs-nav-list">
+		<h4 class="title">Basics</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/basics/controller.php">Controller</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/request.php">Request</a>
+			</li>
+			<li class="">
+				<a href="/docs/basics/response.php">Response</a>
+			</li>
+		</ul>
+	</div>
+			
+	<div class="docs-nav-list">
+		<h4 class="title">Services</h4>
+		<ul>
+			<li class="">
+				<a href="/docs/services/errorhandling/">Error Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/exceptionhandling/">Exception Handling</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/logging/">Logging</a>
+			</li>
+			<li class="docs-nav-sub">
+				<a href="/docs/services/database/">Database</a>
+				<ul>
+					<li>
+						<a href="/docs/services/database/retrievingresults.php">Retrieving Results</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/selects.php">Selects</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/joins.php">Joins</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/unions.php">Unions</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/wheres.php">Where Clauses</a>
+					</li>
+					<!-- 
+					<li>
+						<a href="/docs/services/database/">Ordering, Grouping, Limit, & Offset</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/">Conditional Clauses</a>
+					</li>
+					 -->
+					<li>
+						<a href="/docs/services/database/inserts.php">Inserts</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/updates.php">Updates</a>
+					</li>
+					<li>
+						<a href="/docs/services/database/delete.php">Deletes</a>
+					</li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="/docs/services/flashmessage/">Flash Messages</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/memcache/">Memcache</a>
+			</li>
+			<li class="">
+				<a href="/docs/services/templates/">Templates</a>
+			</li>
+		</ul>
+	</div>
+
+<!-- 
+			<li>
+				<span class="title">Utilities</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/encryption/">Encryption</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/errors-logging/">Errors & Logging</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/file-io/">File I/O</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/hashing/">Hashing</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/templates/">Templates</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/helpers/">Helpers</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/session/">Session</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/flash-message/">Flash Message</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/utilities/image-processing/">Image Processing</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="title">Database</span>
+				<ul>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/basic-usage/">Basic Usage</a>
+					</li>
+					<li>
+						<a href="http://wiggumdocs.home.org/docs/database/query-builder/">Query Builder</a>
+					</li>
+				</ul>
+			</li>
+			 -->
+</div>
+
+				</div>
+				<div class="col-md-9">
+				
+					<section>
+						<div class="page-header">
+							<h1>HTTP Routing</h1>
+						</div>
+
+						<div class="docs-callout docs-callout-info">
+							<h4>Route Engine</h4>
+							<p>The Wiggum Framework's router is built on top of the <a target="_blank" href="https://github.com/nikic/FastRoute">nikic/fastroute</a> component.</p>
+						</div>
+					</section>
+					
+					<section>
+						<section class="sub-section">
+						<h2>Basic Routing</h2>
+						<p>
+							Routing rules are defined in your <code>app/boot/routes.php</code> file. The most basic Wiigum routes simply accept a URI and a handler action, in the format ClassPath@method
+						</p>
+							<pre><code class="language-php">// example.com/journals invokes the doDefault method in the controller class Blog 
+$app->router->get('/journals', '\app\controllers\blog\Blog');
+
+// example.com/docs invokes the allDocuments method in the controller class Documents 
+$app->router->get('/docs', '\app\controllers\documents\Documents@allDocuments');
+</code></pre>
+						</section>
+						<section class="sub-section">
+							<h5>Available Router Methods</h5>
+							<p>The router allows you to register routes that respond to any HTTP verb:</p>
+
+						<pre><code class="language-php">$app->router->get($uri, $callback);
+$app->router->post($uri, $handler);
+$app->router->put($uri, $handler);
+$app->router->patch($uri, $handler);
+$app->router->delete($uri, $handler);
+$app->router->options($uri, $handler);
+$app->router->any($uri, $handler);
+$app->router->map($methods, $uri, $handler);</code></pre>
+						</section>
+					</section>
+						
+
+
+					<section>
+						<section class="sub-section">
+							<h2>Route Parameters</h2>
+							
+							<p>Sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a user's ID from the URL. You may do so by defining route parameters:</p>
+							<pre><code class="language-php">$this->router->get('user/{id}', '/app/controllers/users/UserController@showProfile');</code></pre>
+							
+							<p>The id is stored in the <code>Request</code> object as a parameter and can be retreived in your contorller method like this:</p>
+							<pre><code class="language-php">$id = $request->getParameter('id');</code></pre>
+							
+							Another example with multiple parameters:
+							
+							<pre><code class="language-php">$this->router->get('posts/{postId}/comments/{commentId}', '/app/controllers/posts/CommentController@showComment');</code></pre>
+						</section>
+						
+						<section class="sub-section">
+							<h5>Optional Parameters</h5>
+							<p>You may define optional route parameters by enclosing part of the route URI definition in [...]. So, for example, /foo[bar] will match both /foo and /foobar:</p>
+							<pre><code class="language-php">$this->router->get('user[/{name}]', '/app/controllers/users/UserController@showProfile');</code></pre>
+						</section>
+						
+						<section class="sub-section">
+							<h5>Regular Expression Constraints</h5>
+							<p>You may constrain the format of your route parameters by defining a regular expression in your route definition:</p>
+							<pre><code class="language-php">$this->router->get('user/{name:[A-Za-z]+}', '/app/controllers/users/UserController@showProfile');</code></pre>
+						</section>
+					</section>
+					
+					<section>
+						<section class="sub-section">
+							<h2>Route Closure</h2>
+							
+							<p>You can use a Closure as your handler, your Closure must return a <code>array</code> with the route actions.</p>
+							<p>The route actions that are available to you are:</p>
+							<table class="table">
+								<tr>
+									<td>classPath (required)</td>
+									<td>
+									The string is divided into the class path to your controller and a method to invoke in your controller 
+									seperated by a @ sign. If no method is provided <code>doDefault</code> is used as a default method. eg. 
+									<code>\app\controllers\documents\Documents@allDocuments</code>.
+									</td>
+								</tr>
+								<tr>
+									<td>parameters (optional)</td>
+									<td>Any paramaters you would like to attach to your <code>Request</code> object.</td>
+								</tr>
+								<tr>
+									<td>properties (optional)</td>
+									<td>Any properties you would like to attach to your controller.</td>
+								</tr>
+							</table>
+							
+							<pre><code class="language-php">$app->addRoute('/docs', function($parameters) {
+	$properties = ['accountId' => 123];
+						
+	return ['classPath' => '\app\controllers\documents\Documents@allDocuments', 'parameters' => $parameters, 'properties' => $properties];
+});
+</code></pre>	
+							
+						</section>
+					</section>
+					
+					<section>
+						<section class="sub-section">
+							<h2>Route Groups</h2>
+							<p>Route groups allow you to share route attributes, such as prefix, middleware or filters, across a large number of routes without needing to define those attributes on each individual route. Shared attributes are specified in an array format as the first parameter to the $router->group method.</p>
+						</section>
+						
+						<section class="sub-section">
+							<h5>Route Prefix</h5>
+							<p>The prefix group attribute may be used to prefix each route in the group with a given URI. For example, you may want to prefix all route URIs within the group with admin:</p>
+						
+							<pre><code class="language-php">$app->router->group(['prefix' => '/admin'], function () use ($app) {
+    $app->router->get('/users', function() {
+        // Matches The "/admin/users" URL
+    });
+});
+</code></pre>
+						</section>	
+						
+						
+						<section class="sub-section">
+							<h5>Middleware</h5>
+							<p>To assign middleware to all routes within a group, you may use the middleware key in the group attribute array.</p>
+							<p>First register your middleware with the router:</p>
+							
+							<pre><code class="language-php">$app->router->registerMiddleware('auth', function($request, $response, $next) {
+    echo 'BEFORE';
+	$response = $next($request, $response);
+	echo 'AFTER';
+
+	return $response;
+});
+</code></pre>	
+							<p>Using the name you gave your middleware above, define your route group:</p>
+							<pre><code class="language-php">$app->router->group(['middleware' => 'auth'], function () use ($app) {
+    // Both the below routes uses auth Middleware registered above
+    
+    $app->router->get('/', '/app/controllers/dashboard/DashController');
+
+    $app->router->get('user/profile', '/app/controllers/users/UserController@showProfile');
+});
+</code></pre>	
+						<div class="docs-callout docs-callout-info">
+							<h4>Middleware Order</h4>
+							<p>Route middlewares gets added after system middlewares and will be executed in the order you define them.</p>
+						</div>
+						
+						
+						</section>
+						
+						<section class="sub-section">
+							<h5>Filters</h5>
+							<p>Filters allow you to munipulate a routes actions before being processed. For example you can chnage the controller classpath, or modify parameters or add properties.</p>
+							<p>To assign a filter to all routes within a group, you may use the filters key in the group attribute array.</p>
+							<p>First register your filter with the router:</p>
+							
+							<pre><code class="language-php">$app->router->registerFilter('attachUserId', function($actions) {
+    $actions['properties']['userId'] = $actions['paramters']['userId']; // attach userId to your controller as a property
+
+	return $actions;
+});
+</code></pre>	
+							<p>Using the name you gave your filter above, define your route group:</p>
+							<pre><code class="language-php">$app->router->group(['filters' => 'attachUserId'], function () use ($app) {
+    // Both the below routes uses attachUserId Filter registered above
+    
+    $app->router->get('/', '/app/controllers/dashboard/DashController');
+
+    $app->router->get('user/profile', '/app/controllers/users/UserController@showProfile');
+});
+</code></pre>
+							
+						</section>
+					</section>
+
+				</div>
+			</div>
+		</div>
+		
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js?ver=1.10.1'></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/static/js/prism.js"></script>
+	</body>
+</html>	

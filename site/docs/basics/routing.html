@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<title>HTTP Routing | Wiggum</title>
+	
+		@@include('../../includes/docHeader.html')
+	</head>
+
+	<body>
+
+		@@include('../../includes/header.html')
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+				
+					@@include('../../includes/nav.html')
+
+				</div>
+				<div class="col-md-9">
+				
+					<section>
+						<div class="page-header">
+							<h1>HTTP Routing</h1>
+						</div>
+
+						<p>
+							Routing rules are defined in your <code>app/boot/routes.php</code> file. 
+							Add routing rules to an array variable called <code>$routing</code>. 
+							The most basic Wiggum routes simply accept a URI and a set of options:
+						</p>	
+						
+						<section>
+							<h3>Basic Usage</h3>
+							<pre><code class="language-php">// example.com/journals/ invokes the doDefault method in the controller class Blog 
+$app->addRoute('journals', ['classPath' => '\app\controllers\blog\Blog']);
+
+// example.com/docs/ invokes the allDocuments method in the controller class Documents 
+$app->addRoute('docs', ['classPath' => '\app\controllers\documents\Documents', 'method' => 'allDocuments']);
+</code></pre>						
+		
+							<div class="docs-callout docs-callout-info">
+								<h4>Order of Execution</h4>
+								<p>Routes will run in the order they are defined. Higher routes will always take precedence over lower ones.</p>
+							</div>
+						</section>
+						
+						<section>
+							<h3>Regular Expressions</h3>
+							<p>
+								To activate regular expressions you must add the <code>regex</code> option and set it to <code>true</code>.
+								All matched values in the regular expressions will be added to the Request object as paramaters.
+							</p>
+							<pre><code class="language-php">// example.com/products/shirts/123/ invokes the doDefault method in the controller class Blog
+$app->addRoute('/products/([a-z]+)/(\d+)/', ['classPath' => '\app\controllers\blog\Blog', 'regex' => true]);
+</code></pre>
+
+							<div class="docs-callout docs-callout-warning">
+								<h4>Duplicated Paramaters</h4>
+								<p>If the http request already has paramaters with the same name as the matched regular expression, then the matched values will take priority.</p>
+							</div>
+						</section>
+
+						<section>
+							<h3>Reserved Routes</h3>
+							<pre><code class="language-php">// example.com invokes the action that should be executed if the URI is empty, 
+// which will be the case when people load your root URL.
+$app->addRoute('/', ['classPath' => '\app\controllers\dashboard\Dashboard']);
+
+// This is called a catch all, if URI can not be matched to any route and you have declared * route, 
+// then all unmatched URIs will be directed accordingly.
+$app->addRoute('*', ['classPath' => '\app\controllers\catchall\CatchAll']);
+</code></pre>				
+					
+							<div class="docs-callout docs-callout-warning">
+								<h4>Catch All</h4>
+								<p>The Catch all route is always checked last and is the only exception to the previous rule. </p>
+								<p>It does not require the <code>regex</code> option.</p>
+							</div>
+						</section>						
+						
+						<section>
+							<h3>Closures Route Declarations</h3>	
+							<p>This route simply accepts a URI and a Closure. It must return a <code>array</code> with the routes options.</p>
+							<pre><code class="language-php">$app->addRoute('journals', function() {
+	return ['classPath' => '\app\controllers\blog\Blog'];
+});
+</code></pre>	
+
+							<p>
+								Of course, sometimes you will need to capture segments or parameters of the URI within your route. 
+								For example, you may need to capture a user's ID from the URL. You may do so by defining route parameters:
+							</p>
+							<pre><code class="language-php">$app->addRoute('/user/(\d+)/', function($segments, $parameters) {
+	$userId = $parameters[0];
+						
+	return ['classPath' => '\app\controllers\users\Users', 'parameters' => ['id' => $userId]];
+});
+</code></pre>	
+						</section>
+						<section>	
+							<h3>Route options</h3>
+							<p>The options that are available to you are:</p>
+							<ul class="list-unstyled">
+								<li><strong>classPath</strong>: The class path to your controller</li>
+								<li><strong>method</strong>: The method to invoke in your controller (default: doDefault)</li>
+								<li><strong>parameters</strong>: Any paramaters you would like to attach to your request object</li>
+								<li><strong>regex</strong>: Uses regular expressions on your route (default: <code>false</code>)</li>
+							</ul>
+					</section>
+				
+				</div>
+			</div>
+		</div>
+		
+		@@include('../../includes/docFooter.html')
+	</body>
+</html>	
