@@ -377,8 +377,7 @@ class HelloWorld extends Controller
     console.log(path);
     console.log(link);
     
-
-    if (!empty(link)) {
+    if (link.length > 0) {
         link.parent().addClass('active');
     }
 </script>

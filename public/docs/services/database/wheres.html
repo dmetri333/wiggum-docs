@@ -349,8 +349,7 @@ $users = $this->db->table('users')->where('name', 'like', 'T%')->fetchRow();</co
     console.log(path);
     console.log(link);
     
-
-    if (!empty(link)) {
+    if (link.length > 0) {
         link.parent().addClass('active');
     }
 </script>

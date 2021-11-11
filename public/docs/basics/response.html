@@ -400,8 +400,7 @@ $response->addHeader('X-Header-Two', 'Header Value');</code></pre>
     console.log(path);
     console.log(link);
     
-
-    if (!empty(link)) {
+    if (link.length > 0) {
         link.parent().addClass('active');
     }
 </script>

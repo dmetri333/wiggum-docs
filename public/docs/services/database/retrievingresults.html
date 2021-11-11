@@ -311,8 +311,7 @@ $users = $this->db->table('users')->fetchRows(true);</code></pre>
     console.log(path);
     console.log(link);
     
-
-    if (!empty(link)) {
+    if (link.length > 0) {
         link.parent().addClass('active');
     }
 </script>

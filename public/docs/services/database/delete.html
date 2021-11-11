@@ -219,8 +219,7 @@ $this->db->table('users')->delete()->where('votes', '>', 100)->execute();</code>
     console.log(path);
     console.log(link);
     
-
-    if (!empty(link)) {
+    if (link.length > 0) {
         link.parent().addClass('active');
     }
 </script>
