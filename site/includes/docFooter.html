@@ -7,7 +7,11 @@
 
 <script>
     var path = window.location.pathname;
-    var link = $('.docs-nav [href="'+path+'"]');
+    var link = $('.docs-nav a[href="'+path+'"]');
+
+    console.log(path);
+    console.log(link);
+    
 
     if (!empty(link)) {
         link.parent().addClass('active');
