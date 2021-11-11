@@ -287,16 +287,11 @@ $app->addRoute('*', ['classPath' => '\app\controllers\catchall\CatchAll']);
 <script>
     var path = window.location.pathname;
     var link = $('.docs-nav a[href="'+path+'"]');
-
-    console.log(path);
-    console.log(link);
     
     if (link.length > 0) {
         let closest = link.closest('.docs-nav-sub');
-        console.log(closest);
         if (closest.length > 0) {
-            console.log(closest.find('> a'));
-            closest.find('> a').addClass('active');
+            closest.addClass('active');
         } else {
             link.parent().addClass('active');
         }
