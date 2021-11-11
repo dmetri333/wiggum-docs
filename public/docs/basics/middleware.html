@@ -270,7 +270,7 @@ $app->addMiddleware(function ($request, $response, $next) {
         let closest = link.closest('.docs-nav-sub');
         console.log(closest);
         if (closest.length > 0) {
-            console.log(closest.find('> a');
+            console.log(closest.find('> a'));
             closest.find('> a').addClass('active');
         } else {
             link.parent().addClass('active');
